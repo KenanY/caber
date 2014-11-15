@@ -7,41 +7,48 @@ lab.experiment('Main Parse', function () {
 
     lab.test('README example', function (done) {
         var workout = caber.parse('Squat 135x5,  200x3, 225x4. Bench Press 100x9x4 Cycling 1:30:00 15 miles');
-        Lab.expect(workout, 'parsed results').to.include.keys('Squat', 'Bench Press', 'Cycling');
-        Lab.expect(workout.Squat, 'parsed squat sets').to.have.length(3);
-        Lab.expect(workout['Bench Press'], 'parsed bench press sets').to.have.length(4);
-        Lab.expect(workout.Squat[0], 'first squat set').to.include.keys('unit', 'weight', 'reps');
-        Lab.expect(workout.Squat[0].reps, 'first squat set reps').to.equal(5);
-        Lab.expect(workout.Squat[0].unit, 'first squat set unit').to.equal('lb');
-        Lab.expect(workout.Squat[1].weight, 'first squat set weight').to.equal(200);
-        Lab.expect(workout['Bench Press'][0], 'first bench press set').to.include.keys('unit', 'weight', 'reps');
-        Lab.expect(workout['Bench Press'][0].reps, 'first bench press set reps').to.equal(9);
-        Lab.expect(workout['Bench Press'][0].weight, 'first bench press set reps').to.equal(100);
-        Lab.expect(workout.Cycling, 'parsed cycling sets').to.have.length(1);
-        Lab.expect(workout.Cycling[0].time, 'parsed cycling time').to.equal('1:30:00');
-        Lab.expect(workout.Cycling[0].unit, 'parsed cycling unit').to.equal('miles');
-        Lab.expect(workout.Cycling[0].distance, 'parsed cycling distance').to.equal(15);
+        Lab.expect(workout, 'parsed results').to.have.length(3);
+        Lab.expect(workout[0].name, 'first entry name').to.equal('Squat');
+        Lab.expect(workout[0].sets, 'parsed squat sets').to.have.length(3);
+        Lab.expect(workout[0].sets[0], 'first squat set').to.include.keys('unit', 'weight', 'reps');
+        Lab.expect(workout[0].sets[0].reps, 'first squat set reps').to.equal(5);
+        Lab.expect(workout[0].sets[0].unit, 'first squat set unit').to.equal('lb');
+        Lab.expect(workout[0].sets[0].weight, 'first squat set weight').to.equal(135);
+        Lab.expect(workout[1].name, 'second entry name').to.equal('Bench Press');
+        Lab.expect(workout[1].sets, 'parsed bench press sets').to.have.length(4);
+        Lab.expect(workout[1].sets[0], 'first bench press set').to.include.keys('unit', 'weight', 'reps');
+        Lab.expect(workout[1].sets[0].reps, 'first bench press set reps').to.equal(9);
+        Lab.expect(workout[1].sets[0].weight, 'first bench press set reps').to.equal(100);
+        Lab.expect(workout[2].name, 'third entry name').to.equal('Cycling');
+        Lab.expect(workout[2].sets, 'parsed cycling sets').to.have.length(1);
+        Lab.expect(workout[2].sets[0].time, 'parsed cycling time').to.equal('1:30:00');
+        Lab.expect(workout[2].sets[0].unit, 'parsed cycling unit').to.equal('miles');
+        Lab.expect(workout[2].sets[0].distance, 'parsed cycling distance').to.equal(15);
         done();
     });
-
     lab.test('Newline separator', function (done) {
         var workout = caber.parse('Squat 135x5, 200x3\nBench Press 123x10x3');
-        Lab.expect(workout, 'parsed results').to.include.keys('Squat', 'Bench Press');
-        Lab.expect(workout.Squat, 'parsed squat set').to.have.length(2);
+        Lab.expect(workout, 'parsed results').to.have.length(2);
+        Lab.expect(workout[0].name, 'first entry name').to.equal('Squat');
+        Lab.expect(workout[0].sets, 'parsed squat set').to.have.length(2);
+        Lab.expect(workout[1].name, 'second entry name').to.equal('Bench Press');
         done();
     });
 
     lab.test('Comma separator', function (done) {
         var workout = caber.parse('Squat 135x5,200x3 Bench Press 123x10x3');
-        Lab.expect(workout, 'parsed results').to.include.keys('Squat', 'Bench Press');
-        Lab.expect(workout.Squat, 'parsed squat results').to.have.length(2);
-        Lab.expect(workout.Squat[0].weight, 'first squat set weight').to.equal(135);
-        Lab.expect(workout.Squat[0].reps, 'first squat set reps').to.equal(5);
-        Lab.expect(workout.Squat[1].weight, 'second squat set weight').to.equal(200);
-        Lab.expect(workout.Squat[1].reps, 'second squat set reps').to.equal(3);
+        Lab.expect(workout, 'parsed results').to.have.length(2);
+        Lab.expect(workout[0].name, 'first entry name').to.equal('Squat');
+        Lab.expect(workout[1].name, 'second entry name').to.equal('Bench Press');
+        Lab.expect(workout[0].sets, 'parsed squat sets').to.have.length(2);
+        Lab.expect(workout[0].sets[0].weight, 'first squat set weight').to.equal(135);
+        Lab.expect(workout[0].sets[0].reps, 'first squat set reps').to.equal(5);
+        Lab.expect(workout[0].sets[1].weight, 'second squat set weight').to.equal(200);
+        Lab.expect(workout[0].sets[1].reps, 'second squat set reps').to.equal(3);
         done();
     });
 
+/*
     lab.test('Spaces between weight/reps', function (done) {
         var workout = caber.parse('Squat 135 x 5');
         Lab.expect(workout, 'parsed results').to.include.keys('Squat');
@@ -136,6 +143,6 @@ lab.experiment('Main Parse', function () {
         Lab.expect(workout.Cycling[0].pr, 'Parsed cycling result pr').to.not.be.true;
         done();
     });
-
+*/
 });
 
