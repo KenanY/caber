@@ -97,7 +97,7 @@ This would output
         { "weight": 135, "unit": "lb", "reps": 10 },
         { "weight": 135, "unit": "lb", "reps": 10 },
         { "weight": 135, "unit": "lb", "reps": 10 }
-        { "reps": "10" }
+        { "reps": 10 }
      ]
   }, {
     "name": "DB Curls",
