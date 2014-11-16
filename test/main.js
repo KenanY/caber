@@ -102,12 +102,14 @@ lab.experiment('Main Parse', function () {
     lab.test('Trailing space', function (done) {
         var workout = caber.parse('Squat 100x5x4 ');
         Lab.expect(workout, 'parsed results').to.have.length(1);
+        Lab.expect(workout[0].sets, 'parsed sets').to.have.length(4);
         done();
     });
 
     lab.test('Trailing newline', function (done) {
         var workout = caber.parse('Squat 100x5x4\n');
         Lab.expect(workout, 'parsed results').to.have.length(1);
+        Lab.expect(workout[0].sets, 'parsed sets').to.have.length(4);
         done();
     });
 

@@ -123,7 +123,8 @@
     //Parse from copied fitocracy data
     Caber.fitocracy = function (data) {
         var lines, line, currentActivity, setData, match;
-        var parsed = {};
+        var currentIndex = -1;
+        var parsed = [];
         if (typeof data !== 'string') {
             throw new TypeError('Caber can only parse strings, tried parsing ' + typeof data);
         }
@@ -152,19 +153,20 @@
                     if (line.match(/assisted/)) {
                         setData.weight = setData.weight * -1;
                     }
-                    parsed[currentActivity].push(setData);
+                    parsed[currentIndex].sets.push(setData);
                 } else if (line.indexOf(':') > -1) { //Time/Distance
                     match = line.match(/([0-9:]+) \| ([0-9]+) (mi|km)/);
                     if (match) {
                         setData.unit = match[3];
                         setData.time = match[1];
                         setData.distance = Number(match[2]);
-                        parsed[currentActivity].push(setData);
+                        parsed[currentIndex].sets.push(setData);
                     }
                 }
             } else if (line.length > 0 && ['Comment', 'Prop', 'Share'].indexOf(line) === -1 ) {
+                currentIndex = currentIndex + 1;
                 currentActivity = line;
-                parsed[currentActivity] = [];
+                parsed[currentIndex] = {name: currentActivity, sets: []};
             }
         }
         return parsed;
