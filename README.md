@@ -104,7 +104,7 @@ This would output
     "sets": [
         { "weight": 25, "unit": "lb", "reps": 10 },
         { "weight": 25, "unit": "lb", "reps": 10 },
-        { pr: true, "weight": 25, "unit": "lb", "reps": 10 }
+        { "pr": true, "weight": 25, "unit": "lb", "reps": 10 }
      ]
   }
 ]
