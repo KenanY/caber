@@ -85,26 +85,26 @@ This would output
   {
     "name": "Curls",
     "sets": [
-        { "weight": 15, "unit": "lb", "reps": 10" },
-        { "weight": "15", "unit": "lb", "reps": "10" },
-        { "weight": "15", "unit": "lb", "reps": "10" },
-        { "weight": "15", "unit": "lb", "reps": "10" },
-        { "weight": "15", "unit": "lb", "reps": "10" }
+        { "weight": 15, "unit": "lb", "reps": 10 },
+        { "weight": 15, "unit": "lb", "reps": 10 },
+        { "weight": 15, "unit": "lb", "reps": 10 },
+        { "weight": 15, "unit": "lb", "reps": 10 },
+        { "weight": 15, "unit": "lb", "reps": 10 }
     ],
   }, {
     "name": "Hammer Curls",
     "sets": [
-        { "weight": "135", "unit": "lb", "reps": "10" },
-        { "weight": "135", "unit": "lb", "reps": "10" },
-        { "weight": "135", "unit": "lb", "reps": "10" }
+        { "weight": 135, "unit": "lb", "reps": 10 },
+        { "weight": 135, "unit": "lb", "reps": 10 },
+        { "weight": 135, "unit": "lb", "reps": 10 }
         { "reps": "10" }
      ]
   }, {
     "name": "DB Curls",
     "sets": [
-         { "weight": "25", "unit": "lb", "reps": "10" },
-        { "weight": "25", "unit": "lb", "reps": "10" },
-        { pr: true, "weight": "25", "unit": "lb", "reps": "10" }
+        { "weight": 25, "unit": "lb", "reps": 10 },
+        { "weight": 25, "unit": "lb", "reps": 10 },
+        { pr: true, "weight": 25, "unit": "lb", "reps": 10 }
      ]
   }
 ]
