@@ -26,7 +26,7 @@ This would output
     "sets": [
         { "reps": 5, "weight": 135, "unit": "lb" },
         { "reps": 3, "weight": 200, "unit": "lb" },
-        { "reps": 4, "weight": 225, "unit": "lb" },
+        { "reps": 4, "weight": 225, "unit": "lb" }
     ]
   }, {
     "name: "Bench Press",
@@ -37,7 +37,7 @@ This would output
         { "reps": 9, "weight": 100, "unit": "lb" }
     ]
   }, {
-    "name": "Cycling"
+    "name": "Cycling",
     "sets": [
         { "time": "1:30:00", "distance": 15, "unit": "miles" }
     ]
@@ -56,7 +56,7 @@ console.log(workout);
 ```json
 [
   {
-    "name": "Deadlift"
+    "name": "Deadlift",
     "sets": [
         {"reps": 5, "weight": 450, "unit": "lb"},
         {"reps": 1, "weight": 500, "unit": "lb", "pr": true}
@@ -83,7 +83,7 @@ This would output
 ```json
 [
   {
-    "name": "Curls"
+    "name": "Curls",
     "sets": [
         { "weight": 15, "unit": "lb", "reps": 10" },
         { "weight": "15", "unit": "lb", "reps": "10" },
@@ -92,15 +92,15 @@ This would output
         { "weight": "15", "unit": "lb", "reps": "10" }
     ],
   }, {
-    "name": "Hammer Curls"
+    "name": "Hammer Curls",
     "sets": [
         { "weight": "135", "unit": "lb", "reps": "10" },
         { "weight": "135", "unit": "lb", "reps": "10" },
-        { "weight": "135", "unit": "lb", "reps": "10" },
+        { "weight": "135", "unit": "lb", "reps": "10" }
         { "reps": "10" }
      ]
   }, {
-    "name": "DB Curls"
+    "name": "DB Curls",
     "sets": [
          { "weight": "25", "unit": "lb", "reps": "10" },
         { "weight": "25", "unit": "lb", "reps": "10" },
