@@ -29,7 +29,7 @@ This would output
         { "reps": 4, "weight": 225, "unit": "lb" }
     ]
   }, {
-    "name: "Bench Press",
+    "name": "Bench Press",
     "sets": [
         { "reps": 9, "weight": 100, "unit": "lb" },
         { "reps": 9, "weight": 100, "unit": "lb" },
